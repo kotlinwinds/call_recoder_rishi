@@ -1,14 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="wrap_content"
-    android:gravity="center_vertical"
-    android:orientation="horizontal">
-
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="fill_parent" android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:padding="5dp"
+        android:orientation="vertical">
 
     <TextView
-            android:id="@+id/tv"
-            android:layout_width="match_parent"
-              android:layout_height="wrap_content"/>
+            android:id="@+id/tv_number"
+            tools:text="8768768868"
+            android:textSize="14sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
 
-</LinearLayout>
+    <RelativeLayout
+            android:id="@+id/rr"
+            android:gravity="center_vertical"
+            android:layout_below="@+id/tv_number"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        <ImageView
+                android:layout_marginTop="3dp"
+                android:id="@+id/iv_type"
+                android:src="@drawable/ic_call_outgoing"
+                android:layout_width="15dp"
+                android:layout_height="15dp"/>
+
+        <TextView
+                android:gravity="center_vertical"
+                android:layout_marginStart="5dp"
+                android:layout_toRightOf="@+id/iv_type"
+                android:id="@+id/tv_name"
+                tools:text="Karun Kumar"
+                android:textSize="14sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+
+    </RelativeLayout>
+
+    <TextView
+            android:layout_alignParentEnd="true"
+            android:id="@+id/tv_date"
+            tools:text="12-34-2344- 11:344:344"
+            android:textStyle="normal"
+            android:textSize="12sp"
+            android:textColor="@android:color/holo_green_dark"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    <View
+            android:layout_marginTop="13dp"
+            android:layout_below="@+id/rr"
+            android:layout_width="match_parent"
+            android:layout_height="0.8dp"
+            android:background="#3435"/>
+
+</RelativeLayout>

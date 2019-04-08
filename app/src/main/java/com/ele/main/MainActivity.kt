@@ -5,6 +5,8 @@ import android.support.v4.view.ViewPager
 import android.support.v7.app.AppCompatActivity
 import com.ele.R
 import com.ele.main.fragment.Tab1Fragment
+import com.ele.main.fragment.Tab2Fragment
+import com.ele.main.fragment.Tab3Fragment
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -27,8 +29,8 @@ class MainActivity : AppCompatActivity() {
 
         adapter = MyAdapter(supportFragmentManager, this)
         adapter!!.addFragment(Tab1Fragment(), resources.getString(R.string.all) ,  tabIcons[0])
-        adapter!!.addFragment(Tab1Fragment(),  resources.getString(R.string.incoming) ,  tabIcons[1])
-        adapter!!.addFragment(Tab1Fragment(),  resources.getString(R.string.outgoing) ,  tabIcons[2])
+        adapter!!.addFragment(Tab2Fragment(),  resources.getString(R.string.incoming) ,  tabIcons[1])
+        adapter!!.addFragment(Tab3Fragment(),  resources.getString(R.string.outgoing) ,  tabIcons[2])
 
         viewPager!!.adapter = adapter
         tabLayout!!.setupWithViewPager(viewPager)

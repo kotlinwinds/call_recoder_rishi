@@ -6,14 +6,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.ele.R
-import com.ele.model.LanguageModel
+import com.ele.db.Entities.NotificationEntity
+import com.ele.utils.DateAndTimeUtil
 import kotlinx.android.synthetic.main.fragment_recording.view.*
 
-class AllAdapter(var list: ArrayList<LanguageModel>, var listener: ItemClickListener) : RecyclerView.Adapter<AllAdapter.ViewHolder>() {
+class AllAdapter(var list: MutableList<NotificationEntity>, var listener: ItemClickListener) : RecyclerView.Adapter<AllAdapter.ViewHolder>() {
 
 
     interface ItemClickListener {
-        fun onItemClicked(repos: LanguageModel)
+        fun onItemClicked(repos: NotificationEntity)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -32,8 +33,21 @@ class AllAdapter(var list: ArrayList<LanguageModel>, var listener: ItemClickList
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         @SuppressLint("SetTextI18n")
         val context = itemView.context
-        fun bindItems(model: LanguageModel) {
-            itemView.tv.text = model.langNameEng
+        fun bindItems(model: NotificationEntity) {
+            itemView.tv_name.text = model.name
+            itemView.tv_number.text = model.number
+            if(model.type !="Incoming"){
+                itemView.iv_type.setImageResource(R.drawable.ic_call_received)
+            }else itemView.iv_type.setImageResource(R.drawable.ic_call_outgoing)
+
+            var a = ""
+            a = try {
+                DateAndTimeUtil.getTimeAgo(context, DateAndTimeUtil.getDateInMilliSeconds(model.server_time!!))!!
+            } catch (e: Exception) {
+                "ago"
+            }
+            itemView.tv_date.text = a
+
             itemView.setOnClickListener {
                 listener.onItemClicked(model)
             }

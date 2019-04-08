@@ -15,7 +15,7 @@
             app:tabGravity="fill"
             app:tabIndicatorColor="@android:color/white"
             app:tabIndicatorHeight="4dp"
-            app:tabBackground="@color/colorPrimary"
+            app:tabBackground="@color/tabbar"
             app:tabMode="fixed">
     </android.support.design.widget.TabLayout>
 

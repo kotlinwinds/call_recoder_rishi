@@ -4,4 +4,5 @@
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
     <color name="yellow">#FFEB3B</color>
+    <color name="tabbar">#2196F3</color>
 </resources>
